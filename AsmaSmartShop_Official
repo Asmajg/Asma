@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asma Smart Shop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header, footer {
+      background: #0078d7;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background: #333;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .product {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      width: 250px;
+      text-align: center;
+      background-color: #f9f9f9;
+    }
+
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .product h3 {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .add-to-cart {
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .add-to-cart:disabled {
+      background-color: #bbb;
+      cursor: not-allowed;
+    }
+
+    .messagerie {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .message-box {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .message-box input, .message-box textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .send-button {
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .send-button:hover {
+      background-color: #005fa3;
+    }
+
+    footer a {
+      color: #0078d7;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bienvenue sur Asma Smart Shop</h1>
+    <p>La boutique en ligne de vos rêves</p>
+  </header>
+
+  <nav>
+    <a href="#home">Accueil</a>
+    <a href="#products">Produits</a>
+    <a href="#messagerie">Messagerie</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="products">
+    <h2>Nos produits</h2>
+    <div class="products">
+      <!-- Exemple de produit en stock -->
+      <div class="product">
+        <img src="https://via.placeholder.com/250" alt="Produit 1">
+        <h3>Produit 1</h3>
+        <p>Prix : 10€</p>
+        <p><strong>En stock</strong></p>
+        <button class="add-to-cart" onclick="addToCart('Produit 1', 10)">Ajouter au panier</button>
+      </div>
+      <!-- Exemple de produit en rupture de stock -->
+      <div class="product">
+        <img src="https://via.placeholder.com/250" alt="Produit 2">
+        <h3>Produit 2</h3>
+        <p>Prix : 20€</p>
+        <p><strong style="color: red;">Rupture de stock</strong></p>
+        <button class="add-to-cart" disabled>Indisponible</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="messagerie">
+    <h2>Messagerie interne</h2>
+    <div class="messagerie">
+      <h3>Envoyer un message</h3>
+      <div class="message-box">
+        <input type="text" placeholder="Destinataire (Nom d'utilisateur)" required>
+        <textarea placeholder="Écrivez votre message ici..." rows="5" required></textarea>
+        <button class="send-button" onclick="sendMessage()">Envoyer</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Asma Smart Shop. Tous droits réservés.</p>
+    <p><a href="#contact">Contactez-nous</a></p>
+  </footer>
+
+  <script>
+    let cart = [];
+
+    // Ajouter un produit au panier
+    function addToCart(productName, price) {
+      cart.push({ productName, price });
+      updateCart();
+      alert(`"${productName}" ajouté au panier.`);
+    }
+
+    // Mise à jour du panier
+    function updateCart() {
+      console.log(cart); // Pour test
+    }
+
+    // Envoyer un message
+    function sendMessage() {
+      alert("Message envoyé via la messagerie interne !");
+    }
+  </script>
+</body>
+</html>
